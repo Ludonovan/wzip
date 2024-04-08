@@ -9,7 +9,7 @@
 #include <string.h>
 
 #define LENGTH 2
-
+/*
 // write to stdout
 void out(int count, char c[LENGTH]) {
     // write count, 4 bytes, 1 item of data, to stdout
@@ -17,7 +17,7 @@ void out(int count, char c[LENGTH]) {
     // write c (current char), 1 byte, 1 item of data, to stdout
     fwrite(c, 1, 1, stdout);
 }
-
+*/
 int main(int argc, char *argv[]) {
     if (argc < 2) { // no file input
         fprintf(stdout, "wzip: file1 [file2 ...]\n");
@@ -44,7 +44,9 @@ int main(int argc, char *argv[]) {
                 count++;
             } else { // different char
                 if (prev_c[0] != '\0') { 
-                    out(count, c);
+                    //out(count, c);
+                    fwrite(&count, 4, 1, stdout);
+                    fwrite(c, 1, 1, stdout);
                 }
                 count = 1; 
                 // replace previous char with current char
@@ -54,7 +56,9 @@ int main(int argc, char *argv[]) {
         fclose(fp); 
     }
 
-   out(count, c);
+   fwrite(&count, 4, 1, stdout);
+   fwrite(c, 1, 1, stdout);
+   //out(count, c);
    return 0; 
 }
 

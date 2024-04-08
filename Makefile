@@ -1,5 +1,9 @@
-wzip: 
-	gcc -o wzip wzip.c -Wall -Werror
+wzip: wzip.o 
+	gcc -o wzip wzip.o
+
+wzip.o: wzip.c
+	gcc -c wzip.c
 
 clean:
-	rm wzip
+	rm wzip wzip.o
+	clear
