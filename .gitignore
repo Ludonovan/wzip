@@ -1,6 +1,4 @@
 wzip
-README.md
-test-wzip.sh
-tests-out/
-tests/
 wzip.o
+wzip-mthread.o
+
