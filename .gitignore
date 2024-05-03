@@ -1,6 +1,3 @@
 wzip
 wzip.o
 wzip-mthread.o
-tests/
-tests-out/
-test-wzip.sh
